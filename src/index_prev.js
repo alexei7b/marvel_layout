@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-// import useMarvelService from './services/MarvelService';
+// import MarvelService from './services/MarvelService';
 
 import './style/sass/style.scss';
 
-// const marvelService = new useMarvelService();
+// const marvelService = new MarvelService();
 // marvelService.getAllCharacters().then(res => console.log(res));
 
 // marvelService.getCharacters(11).then(res => console.log(res));
@@ -14,10 +14,10 @@ import './style/sass/style.scss';
 // дальше переберем массив, выведем имя в массив  
 // marvelService.getAllCharacters().then(res => res.data.results.forEach(item => console.log(item.name)));
 
-
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+// <React.StrictMode>
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

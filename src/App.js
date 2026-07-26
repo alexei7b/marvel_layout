@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+// import { MainPage, ComicsPage, SingleComicPage } from './components/pages';
+// import Page404 from './components/pages/404';
+import AppHeader from './components/appHeader/AppHeader';
+import Spinner from './components/spinner/Spinner';
+
+
+const Page404 = lazy(() => import('./components/pages/404'));
+const MainPage = lazy(() => import('./components/pages/MainPage'));
+const ComicsPage = lazy(() => import('./components/pages/ComicsPage'));
+// const SingleComicPage = lazy(() => import('./components/pages/singleComicPage/SingleComicPage'));
+const SingleComicLayout = lazy(() => import('./components/pages/singleComicLayout/SingleComicLayout'));
+const SingleCharacterLayout = lazy(() => import('./components/pages/singleCharacterLayout/SingleCharacterLayout'));
+const SinglePage = lazy(() => import('./components/pages/SingePage'));
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <AppHeader />
+
+        <main>
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/comics" element={<ComicsPage />} />
+              <Route path="/comics/:id" element={<SinglePage Component={SingleComicLayout} dataType='comic' />} />
+              <Route path="/characters/:id" element={<SinglePage Component={SingleCharacterLayout} dataType='character' />} />
+              <Route path="*" element={<Page404 />} />
+            </Routes>
+          </Suspense>
+        </main >
+
+      </div >
+    </Router>
   );
 }
 
