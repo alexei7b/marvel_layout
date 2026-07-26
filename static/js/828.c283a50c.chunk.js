@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmarvel_layout=self.webpackChunkmarvel_layout||[]).push([[828],{828(s,c,e){e.r(c),e.d(c,{default:()=>l});var a=e(579);const l=s=>{let c=s.data;const e=c.name,l=c.description,i=c.thumbnail;return(0,a.jsxs)("div",{className:"single-comic",children:[(0,a.jsx)("img",{src:i,alt:e,className:"single-comic__char-img"}),(0,a.jsxs)("div",{className:"single-comic__info",children:[(0,a.jsx)("h2",{className:"single-comic__name",children:e}),(0,a.jsx)("p",{className:"single-comic__descr",children:l})]})]})}}}]);
+//# sourceMappingURL=828.c283a50c.chunk.js.map
