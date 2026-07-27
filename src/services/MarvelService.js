@@ -51,7 +51,7 @@ const useMarvelService = () => {
             name: char.name,
             description: char.description,
             thumbnail: char.thumbnail.path.includes('wallpaperflare')
-                ? '/img/iron-man.jpg'
+                ? `${process.env.PUBLIC_URL}/img/iron-man.jpg`
                 : char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
