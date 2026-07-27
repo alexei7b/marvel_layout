@@ -84,11 +84,6 @@ const CharList = (props) => {
                     }}
                 >
                     <img src={item.thumbnail} alt={item.name}
-                        onError={(e) => {
-                            if (item.name === 'Iron Man') {
-                                e.currentTarget.src = '/img/iron-man.jpg';
-                            }
-                        }}
                     />
                     <div className="char__name">{item.name}</div>
                 </li>
