@@ -83,7 +83,13 @@ const CharList = (props) => {
                         }
                     }}
                 >
-                    <img src={item.thumbnail} alt={item.name} />
+                    <img src={item.thumbnail} alt={item.name}
+                        onError={(e) => {
+                            if (item.name === 'Iron Man') {
+                                e.currentTarget.src = '/img/iron-man.jpg';
+                            }
+                        }}
+                    />
                     <div className="char__name">{item.name}</div>
                 </li>
             )
@@ -100,7 +106,7 @@ const CharList = (props) => {
     const errorMessage = error ? <ErrorMessage /> : null;
     const spinner = loading && !newItemLoading ? <Spinner /> : null;
 
-   
+
     return (
         <div className="char__list">
             {errorMessage}

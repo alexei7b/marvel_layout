@@ -42,11 +42,6 @@ const ComicsList = () => {
                 <li className="comics__item" key={item.id}>
                     <Link to={`/comics/${item.id}`}>
                         <img src={item.thumbnail} alt={item.title}
-                            onError={(e) => {
-                                if (item.name === 'Iron Man') {
-                                    e.currentTarget.src = '/img/iron-man.jpg';
-                                }
-                            }}п
                             className="comics__item-img" />
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">{item.price}</div>
